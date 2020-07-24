@@ -45,12 +45,12 @@ Frontend endpoints:
 
 /admin/artists => Displays a table containing all the artists from the DB.  
 => Display the name / release date / label / edit link / delete button  
-=> The edit link brings us to /admin/artists/edit/the-id-of-the-artist  
+=> The edit link brings us to /admin/artists/edit/:the-id-of-the-artist  
 => The delete button deletes the artist from the database and removes the artist from the table.
 
 /admin/albums => Displays a table containing all the albums from the DB.  
 => Display the name / style / edit link / delete button  
-=> The edit link brings us to /admin/albums/edit/the-id-of-the-album  
+=> The edit link brings us to /admin/albums/edit/:the-id-of-the-album  
 => The delete button deletes the artist from the database and removes the artist from the table.
 
 /admin/artists/create => Form Component to create an artist  
@@ -58,3 +58,9 @@ Frontend endpoints:
 
 /admin/albums/create => Form Component to create an album  
 => Make the user go back to /admin/albums when the post is successful
+
+/admin/artists/edit/:id => Form Component to edit an artist  
+=> Make the user go back to /admin/artists when the patch is successful
+
+/admin/albums/edit/:id => Form Component to edit an album  
+=> Make the user go back to /admin/albums when the patch is successful
