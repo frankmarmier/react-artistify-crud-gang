@@ -24,36 +24,18 @@ class Artists extends React.Component {
   render() {
     return (
       <React.Fragment>
+
         <h1 className="title">All artists</h1>
 
         <ul className="cards">
-          <li className="card artist">
-            <CardArtist />
-          </li>
+          
+          {this.state.artists.map((artist) =>(
 
           <li className="card artist">
             <CardArtist />
+            
           </li>
-
-          <li className="card artist">
-            <CardArtist />
-          </li>
-
-          <li className="card artist">
-            <CardArtist />
-          </li>
-
-          <li className="card artist">
-            <CardArtist />
-          </li>
-
-          <li className="card artist">
-            <CardArtist />
-          </li>
-
-          <li className="card artist">
-            <CardArtist />
-          </li>
+          ))}
         </ul>
       </React.Fragment>
     );
