@@ -76,6 +76,6 @@ app.use('/albums', albumsRouter);
 app.use('/artists', artistsRouter);
 app.use(contactRouter);
 app.use(labelRouter);
-app.use(stylesRouter);
+app.use('/styles', stylesRouter);
 
 module.exports = app;

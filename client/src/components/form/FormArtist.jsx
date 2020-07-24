@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
+import stylesApi from './../../api/stylesApi';
 
 // styles
 import './../../styles/form.css';
 
 class FormArtist extends Component {
-  state = {};
+  state = { styles : []};
+
+  componentDidMount() {
+    stylesApi
+      .getAllStyles()
+      .then((dbRes) => {
+        //console.log(dbRes)
+        this.setState({ styles: dbRes.data });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   handleChange = (event) => {
     let key = event.target.name;
-
+    let value;
     if (event.target.type === 'radio') {
+      value = event.target.value === 'yes' ? true : false;
+      //console.log("value is", value)
     } else {
-      let value = event.target.value;
+      value = event.target.value;
     }
+    this.setState({ [key]: value });
   };
 
   handleSubmit = (event) => {};
@@ -40,7 +56,13 @@ class FormArtist extends Component {
         </label>
 
         <select name="style" id="style">
-          <option>DISPLAY STYLES HERE</option>
+
+        {this.state.styles.map( style => {
+          return <option>{style.name}</option>
+        }
+
+        )}
+          
         </select>
         <label className="label">Is band ?</label>
         <div className="row is-band">
