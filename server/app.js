@@ -65,7 +65,7 @@ const contactRouter = require('./routes/contact.js');
 const labelRouter = require('./routes/labels.js');
 const stylesRouter = require('./routes/styles.js');
 
-app.use(albumsRouter);
+app.use("/albums", albumsRouter);
 app.use("/artists", artistsRouter);
 app.use(contactRouter);
 app.use(labelRouter);
