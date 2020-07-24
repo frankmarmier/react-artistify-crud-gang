@@ -1,6 +1,9 @@
 # Artistify Crud Gang
 
-Hey let's create our REST API and our React Application !
+Hey Squad !  
+A poor client got in conflict with the developers making his web application !  
+He came to us to help him finish the App.  
+The application already contains some logic, let's add some features !
 
 ## The backend
 
