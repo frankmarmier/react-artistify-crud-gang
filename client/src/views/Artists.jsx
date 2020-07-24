@@ -29,11 +29,10 @@ class Artists extends React.Component {
 
         <ul className="cards">
           
-          {this.state.artists.map((artist) =>(
+          {this.state.artists.map((oneArtist) =>(
 
-          <li className="card artist">
-            <CardArtist />
-            
+          <li key = {oneArtist._id} className="card artist">
+            <CardArtist artist={oneArtist}/> 
           </li>
           ))}
         </ul>
