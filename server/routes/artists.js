@@ -49,5 +49,14 @@ router.patch("/:id", (req,res, next) =>{
     .catch(next)
 })
 
+router.delete("/:id", (req, res, next) => {
+    artistModel.findByIdAndRemove(req.params.id)
+    .then((artist) => {
+        res.sendStatus(204)
+    })
+    .catch((err) => {
+        res.sendStatus(500)
+    })
+})
 
 module.exports = router;
