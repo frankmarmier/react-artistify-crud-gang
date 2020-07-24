@@ -29,8 +29,8 @@ class Artist extends Component {
           <h1 className="title">{this.state.artist.name}</h1>
 
           <div className="description">
-            <p>music style: foo</p>
-            <p>artist descriptipn</p>
+            <p>{this.state.artist.style.name}</p>
+            <p>{this.state.artist.description}</p>
           </div>
 
           <h1>Discography</h1>
