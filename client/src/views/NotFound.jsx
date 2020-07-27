@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import withUser from '../components/Auth/withUser';
 
-function Page404() {
+function Page404(props) {
+  console.log(props);
+  // 
   return (
     <div>
       Oh no !!!
@@ -12,4 +15,4 @@ function Page404() {
   );
 }
 
-export default Page404;
+export default withUser(Page404);

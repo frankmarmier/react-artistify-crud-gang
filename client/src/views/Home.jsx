@@ -4,6 +4,7 @@ import React from 'react';
 import crowd from '../assets/img/festival-crowd-1.jpg';
 import vynils from '../assets/img/vynils2.jpg';
 import stage from '../assets/img/stage-1.jpg';
+import CompA from '../components/CompA';
 // styles
 import '../styles/image.css';
 import '../styles/latest.css';
@@ -12,7 +13,9 @@ function Home() {
   return (
     <div className="page home">
       <h1 className="title">A Home...</h1>
-
+      <h1>
+        <CompA />
+      </h1>
       <p className="parag">
         Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
         et reiciendis ullam amet in recusandae. Numquam accusantium itaque illum. Voluptatibus.

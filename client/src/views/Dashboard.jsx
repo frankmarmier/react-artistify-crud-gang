@@ -4,8 +4,11 @@ import FormEditAccount from '../components/form/FormEditAccount';
 import UserFavorites from '../components/admin/UserFavorites';
 import DataViz from '../components/admin/DataViz';
 import IconSignout from '../components/icon/IconSignout';
+import UserContext from '../components/Auth/UserContext';
 
 class Dashboard extends React.Component {
+  static contextType = UserContext;
+
   state = {
     UIState: 'edit',
   };

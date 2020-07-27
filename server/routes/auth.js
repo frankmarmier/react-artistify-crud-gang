@@ -2,7 +2,9 @@ const express = require('express');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const router = express.Router();
+const fileUpload = require('../config/cloudinary');
 const salt = 10;
+
 router.post('/signin', (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -23,7 +25,7 @@ router.post('/signin', (req, res, next) => {
     });
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', fileUpload.single('avatar'), (req, res, next) => {
   const { email, password, username } = req.body;
 
   User.findOne({ email })
@@ -66,8 +68,8 @@ router.get('/is-loggedin', (req, res, next) => {
 });
 
 router.get('/signout', (req, res, next) => {
-  req.session.destroy(err, () => {
-    if (!err) {
+  req.session.destroy((error) => {
+    if (!error) {
       res.status(200).json({ message: 'Signed out successfully' });
     }
   });

@@ -32,6 +32,7 @@ Create a session middleware with the given options.
 Note:  Session data is not saved in the cookie itself, just the session ID. 
 Session data is stored server-side.
 */
+
 app.use(
   session({
     cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 }, // 4 hours
@@ -45,6 +46,7 @@ app.use(
   cors({
     origin: process.env.CLIENT_URL,
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials: true,
   }),
 );
 
@@ -54,6 +56,11 @@ app.use(
 if (_DEVMODE === true) {
   app.use(require('./middlewares/userDebug'));
 }
+
+app.use((req, res, next) => {
+  console.log(req.session.currentUser);
+  next();
+});
 
 //------------------------------------------
 // BASE BACKEND ROUTE

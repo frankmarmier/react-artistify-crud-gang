@@ -8,6 +8,7 @@ class FormArtist extends Component {
   state = { styles: [] };
 
   componentDidMount() {
+    console.log(this.props);
     stylesApi
       .getAllStyles()
       .then((dbRes) => {

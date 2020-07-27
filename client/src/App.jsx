@@ -21,6 +21,9 @@ import FooterMain from './components/FooterMain';
 import NavMobile from './components/nav/NavMobile';
 import Signin from './views/Signin';
 import Signup from './views/Signup';
+import ShowingContext from './components/ShowingContext';
+import CompA from './components/CompA';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
 
 class App extends React.Component {
   state = {
@@ -34,11 +37,14 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <ShowingContext />
+        <CompA />
         <HeaderMain navMobileClbk={this.handleNavMobileStatus} />
         <NavMobile
           navMobileStatus={this.state.navMobileStatus}
           navMobileClbk={this.handleNavMobileStatus}
         />
+
         <main id="content_main">
           <Switch>
             <Route exact path="/" component={Home} />
@@ -49,7 +55,13 @@ class App extends React.Component {
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route path="/contact-us" component={Contact} />
-            <Route path="/dashboard" component={Dashboard} />
+
+            {/* Protected Route nous permet de proteger l'accès à certaines parties de notre application */}
+            {/* On lui envoit exactement les memes props que le composant route sauf qu'on peut y implementer plus de logique 
+              afin de rediriger l'utilisateur.
+             */}
+            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+
             <Route path="/admin/artists" component={AdminArtist} />
             <Route path="/admin/albums" component={AdminAlbum} />
             <Route path="/admin/styles" component={AdminStyle} />

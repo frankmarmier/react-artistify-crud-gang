@@ -48,4 +48,4 @@ class FormAlbum extends Component {
   }
 }
 
-export default withRouter(FormAlbum);
+export default FormAlbum;
