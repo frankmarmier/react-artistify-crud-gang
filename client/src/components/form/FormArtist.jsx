@@ -5,7 +5,7 @@ import stylesApi from './../../api/stylesApi';
 import './../../styles/form.css';
 
 class FormArtist extends Component {
-  state = { styles : []};
+  state = { styles: [] };
 
   componentDidMount() {
     stylesApi
@@ -56,13 +56,9 @@ class FormArtist extends Component {
         </label>
 
         <select name="style" id="style">
-
-        {this.state.styles.map( style => {
-          return <option>{style.name}</option>
-        }
-
-        )}
-          
+          {this.state.styles.map((style) => {
+            return <option>{style.name}</option>;
+          })}
         </select>
         <label className="label">Is band ?</label>
         <div className="row is-band">

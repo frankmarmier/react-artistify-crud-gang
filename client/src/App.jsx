@@ -19,6 +19,8 @@ import NotFound from './views/NotFound';
 import HeaderMain from './components/HeaderMain';
 import FooterMain from './components/FooterMain';
 import NavMobile from './components/nav/NavMobile';
+import Signin from './views/Signin';
+import Signup from './views/Signup';
 
 class App extends React.Component {
   state = {
@@ -44,6 +46,8 @@ class App extends React.Component {
             <Route path="/artists/:id" component={Artist} />
             <Route exact path="/albums" component={Albums} />
             <Route path="/albums/:id" component={Album} />
+            <Route exact path="/signin" component={Signin} />
+            <Route exact path="/signup" component={Signup} />
             <Route path="/contact-us" component={Contact} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/admin/artists" component={AdminArtist} />

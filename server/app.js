@@ -6,7 +6,7 @@ require('./config/mongo'); // database connection setup
 const express = require('express');
 const session = require('express-session'); //sessions make data persist between http calls
 const cors = require('cors');
-const _DEVMODE = true;
+const _DEVMODE = false;
 
 // ------------------------------------------
 // SERVER CONFIG
@@ -47,6 +47,7 @@ app.use(
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   }),
 );
+
 //------------------------------------------
 // Check Loggedin Users
 // ------------------------------------------
@@ -71,7 +72,9 @@ const artistsRouter = require('./routes/artists.js');
 const contactRouter = require('./routes/contact.js');
 const labelRouter = require('./routes/labels.js');
 const stylesRouter = require('./routes/styles.js');
+const authRouter = require('./routes/auth');
 
+app.use('/auth', authRouter);
 app.use('/albums', albumsRouter);
 app.use('/artists', artistsRouter);
 app.use(contactRouter);
